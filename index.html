@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>中国主要宽基指数报告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white text-zinc-900 min-h-screen">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white border-b border-zinc-200">
+        <div class="container max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-semibold tracking-tight">中国主要宽基指数报告</h1>
+            <div class="flex items-center">
+                <div class="flex space-x-4 mr-8">
+                    <a href="https://space.bilibili.com/36229149?spm_id_from=333.1007.0.0" class="text-zinc-600 hover:text-zinc-900 transition-colors" title="哔哩哔哩">
+                        <i data-lucide="tv" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="text-zinc-600 hover:text-zinc-900 transition-colors" title="YouTube">
+                        <i data-lucide="youtube" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="text-zinc-600 hover:text-zinc-900 transition-colors" title="抖音">
+                        <i data-lucide="music" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="text-zinc-600 hover:text-zinc-900 transition-colors" title="快手">
+                        <i data-lucide="video" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="text-zinc-600 hover:text-zinc-900 transition-colors" title="小红书">
+                        <i data-lucide="book-open" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="text-zinc-600 hover:text-zinc-900 transition-colors" title="Twitter/X">
+                        <i data-lucide="twitter" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="text-zinc-600 hover:text-zinc-900 transition-colors" title="微博">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    </a>
+                </div>
+                <nav>
+                    <ul class="flex space-x-6">
+                        <li><a href="#mainland" class="text-sm font-medium text-zinc-600 hover:text-zinc-900 transition-colors">A股指数</a></li>
+                        <li><a href="#hongkong" class="text-sm font-medium text-zinc-600 hover:text-zinc-900 transition-colors">香港指数</a></li>
+                        <li><a href="#comparison" class="text-sm font-medium text-zinc-600 hover:text-zinc-900 transition-colors">指数对比</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="container max-w-7xl mx-auto px-4 py-16">
+        <div class="max-w-4xl">
+            <h2 class="text-4xl font-bold tracking-tight mb-6">中国资本市场全景指南</h2>
+            <p class="text-lg text-zinc-600 mb-10">本报告详细分析中国内地和香港市场的主要宽基指数，包括各指数的行业构成、主要成分股及其历史演变，帮助投资者全面了解中国资本市场的结构与特点。</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="stat-card">
+                    <div class="icon-wrapper">
+                        <i data-lucide="bar-chart-3" class="text-indigo-500 w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-1">7 大主要指数</h3>
+                    <p class="text-sm text-zinc-500">覆盖A股和香港市场的主要宽基指数</p>
+                </div>
+                <div class="stat-card">
+                    <div class="icon-wrapper">
+                        <i data-lucide="building" class="text-indigo-500 w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-1">2000+ 成分股</h3>
+                    <p class="text-sm text-zinc-500">涵盖数千家中国内地和香港上市公司</p>
+                </div>
+                <div class="stat-card">
+                    <div class="icon-wrapper">
+                        <i data-lucide="briefcase" class="text-indigo-500 w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-1">10+ 行业板块</h3>
+                    <p class="text-sm text-zinc-500">分析各指数的行业结构与权重分布</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container max-w-7xl mx-auto px-4 py-8">
+        <!-- Mainland China Indices -->
+        <section id="mainland" class="mb-20">
+            <div class="section-header mb-12">
+                <h2 class="text-3xl font-bold mb-2">中国内地A股市场主要宽基指数</h2>
+                <div class="w-20 h-1 bg-indigo-500"></div>
+            </div>
+
+            <!-- 上证综指 -->
+            <div class="index-card" id="sse-composite">
+                <div class="flex flex-col md:flex-row justify-between">
+                    <div class="md:w-7/12 mb-8 md:mb-0 md:pr-8">
+                        <div class="flex items-center mb-6">
+                            <div class="index-badge">000001</div>
+                            <h3 class="text-2xl font-bold ml-3">上证综合指数</h3>
+                        </div>
+                        <div class="prose max-w-none">
+                            <p class="mb-4">上证综合指数是<strong>上海证券交易所</strong>主要的综合股价指数，旨在反映在上海证券交易所挂牌交易的<strong>所有股票</strong>（包括A股和B股）的整体表现。</p>
+                            
+                            <h4 class="text-lg font-semibold mb-2 mt-6">指数特点与历史</h4>
+                            <ul class="list-disc pl-5 mb-4 space-y-1">
+                                <li>采用<strong>市值加权</strong>平均法计算</li>
+                                <li>以<strong>1990年12月19日</strong>为基日，基点为<strong>100点</strong></li>
+                                <li>正式发布于<strong>1991年7月15日</strong></li>
+                                <li>历史最高点：<strong>6124.04</strong> (2007年10月16日)</li>
+                                <li>历史最低点：<strong>99.98</strong> (1990年12月19日)</li>
+                            </ul>
+                            
+                            <h4 class="text-lg font-semibold mb-2 mt-6">主要成分股</h4>
+                            <p>上证综合指数包含<strong>所有</strong>在上交所上市的股票（约1100多只），包括：</p>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2 mt-3">
+                                <div class="stock-item">
+                                    <span class="stock-code">600030</span>
+                                    <span class="stock-name">中信证券</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">600031</span>
+                                    <span class="stock-name">三一重工</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">600036</span>
+                                    <span class="stock-name">招商银行</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">600519</span>
+                                    <span class="stock-name">贵州茅台</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">601318</span>
+                                    <span class="stock-name">中国平安</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">601988</span>
+                                    <span class="stock-name">中国银行</span>
+                                </div>
+                            </div>
+                            
+                            <p class="text-sm text-zinc-500 mt-3">注：2020年7月22日起修订编制方案，剔除被实施风险警示（ST、*ST）的股票，延长新股计入指数时间，并将科创板上市证券纳入指数样本空间。</p>
+                        </div>
+                    </div>
+                    <div class="md:w-5/12">
+                        <div class="sticky top-24">
+                            <h4 class="text-lg font-semibold mb-4">行业构成分布</h4>
+                            <div class="bg-zinc-50 rounded-lg p-5 h-[300px] mb-5">
+                                <canvas id="sseChart"></canvas>
+                            </div>
+                            <div class="bg-zinc-50 rounded-lg p-5">
+                                <div class="flex justify-between items-center mb-3">
+                                    <h5 class="font-medium text-zinc-800">指数关键数据</h5>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">成分股数量</p>
+                                        <p class="text-xl font-semibold">1177<span class="text-sm font-normal">只</span></p>
+                                    </div>
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">基日点数</p>
+                                        <p class="text-xl font-semibold">100<span class="text-sm font-normal">点</span></p>
+                                    </div>
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">创立年份</p>
+                                        <p class="text-xl font-semibold">1991<span class="text-sm font-normal">年</span></p>
+                                    </div>
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">历史最高点</p>
+                                        <p class="text-xl font-semibold">6124<span class="text-sm font-normal">点</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 深证成指 -->
+            <div class="index-card" id="szse-component">
+                <div class="flex flex-col md:flex-row justify-between">
+                    <div class="md:w-7/12 mb-8 md:mb-0 md:pr-8">
+                        <div class="flex items-center mb-6">
+                            <div class="index-badge">399001</div>
+                            <h3 class="text-2xl font-bold ml-3">深证成份指数</h3>
+                        </div>
+                        <div class="prose max-w-none">
+                            <p class="mb-4">深证成份指数（简称深证成指）是<strong>深圳证券交易所</strong>的主要股指，旨在反映深圳市场的整体运行情况和多层次市场特点。</p>
+                            
+                            <h4 class="text-lg font-semibold mb-2 mt-6">指数特点与历史</h4>
+                            <ul class="list-disc pl-5 mb-4 space-y-1">
+                                <li>从深交所选取<strong>500家</strong>市值大、流动性好的A股上市公司作为样本股</li>
+                                <li>以样本股的<strong>自由流通股数</strong>为权重，采用<strong>派氏加权法</strong>计算</li>
+                                <li>以<strong>1994年7月20日</strong>为基日，基点为<strong>1000点</strong></li>
+                                <li><strong>2015年5月20日</strong>实施扩容改造：样本股数量从<strong>40家扩大到500家</strong></li>
+                                <li>历史最高点：<strong>19600.03</strong>（2007年10月10日）</li>
+                            </ul>
+                            
+                            <h4 class="text-lg font-semibold mb-2 mt-6">主要成分股</h4>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2 mt-3">
+                                <div class="stock-item">
+                                    <span class="stock-code">000858</span>
+                                    <span class="stock-name">五粮液</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">000333</span>
+                                    <span class="stock-name">美的集团</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">300750</span>
+                                    <span class="stock-name">宁德时代</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">000002</span>
+                                    <span class="stock-name">万科A</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">300760</span>
+                                    <span class="stock-name">迈瑞医疗</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">300059</span>
+                                    <span class="stock-name">东方财富</span>
+                                </div>
+                            </div>
+                            
+                            <p class="text-sm text-zinc-500 mt-3">样本股定期调整，通常在每年<strong>1月和7月</strong>的第一个交易日实施。</p>
+                        </div>
+                    </div>
+                    <div class="md:w-5/12">
+                        <div class="sticky top-24">
+                            <h4 class="text-lg font-semibold mb-4">行业构成分布</h4>
+                            <div class="bg-zinc-50 rounded-lg p-5 h-[300px] mb-5">
+                                <canvas id="szseChart"></canvas>
+                            </div>
+                            <div class="bg-zinc-50 rounded-lg p-5">
+                                <div class="flex justify-between items-center mb-3">
+                                    <h5 class="font-medium text-zinc-800">指数关键数据</h5>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">成分股数量</p>
+                                        <p class="text-xl font-semibold">500<span class="text-sm font-normal">只</span></p>
+                                    </div>
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">基日点数</p>
+                                        <p class="text-xl font-semibold">1000<span class="text-sm font-normal">点</span></p>
+                                    </div>
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">创立年份</p>
+                                        <p class="text-xl font-semibold">1994<span class="text-sm font-normal">年</span></p>
+                                    </div>
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">历史最高点</p>
+                                        <p class="text-xl font-semibold">19600<span class="text-sm font-normal">点</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 沪深300 -->
+            <div class="index-card" id="csi300">
+                <div class="flex flex-col md:flex-row justify-between">
+                    <div class="md:w-7/12 mb-8 md:mb-0 md:pr-8">
+                        <div class="flex items-center mb-6">
+                            <div class="index-badge">000300/399300</div>
+                            <h3 class="text-2xl font-bold ml-3">沪深300指数</h3>
+                        </div>
+                        <div class="prose max-w-none">
+                            <p class="mb-4">沪深300指数由<strong>中证指数有限公司</strong>编制，选取<strong>上海和深圳</strong>证券市场中<strong>规模大、流动性好</strong>的<strong>300只</strong>A股作为样本，以反映沪深市场上市公司证券的整体表现。</p>
+                            
+                            <h4 class="text-lg font-semibold mb-2 mt-6">指数特点与历史</h4>
+                            <ul class="list-disc pl-5 mb-4 space-y-1">
+                                <li>采用<strong>自由流通股本市值加权</strong>计算</li>
+                                <li>以<strong>2004年12月31日</strong>为基日，基点为<strong>1000点</strong></li>
+                                <li>正式发布于<strong>2005年4月8日</strong></li>
+                                <li>成分股调整通常在每年<strong>6月和12月</strong>进行</li>
+                                <li>是多种ETF基金、指数基金及股指期货的标的</li>
+                            </ul>
+                            
+                            <h4 class="text-lg font-semibold mb-2 mt-6">主要成分股</h4>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2 mt-3">
+                                <div class="stock-item">
+                                    <span class="stock-code">600519</span>
+                                    <span class="stock-name">贵州茅台</span>
+                                    <span class="weight">约4.63%</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">300750</span>
+                                    <span class="stock-name">宁德时代</span>
+                                    <span class="weight">约3.43%</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">601318</span>
+                                    <span class="stock-name">中国平安</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">600036</span>
+                                    <span class="stock-name">招商银行</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">000001</span>
+                                    <span class="stock-name">平安银行</span>
+                                    <span class="weight">约0.61%</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">000002</span>
+                                    <span class="stock-name">万科A</span>
+                                    <span class="weight">约0.53%</span>
+                                </div>
+                            </div>
+                            
+                            <p class="text-sm text-zinc-500 mt-3">注：权重数据为参考时间点的示例，实际权重会随市场变化定期调整。</p>
+                        </div>
+                    </div>
+                    <div class="md:w-5/12">
+                        <div class="sticky top-24">
+                            <h4 class="text-lg font-semibold mb-4">行业构成分布</h4>
+                            <div class="bg-zinc-50 rounded-lg p-5 h-[300px] mb-5">
+                                <canvas id="csi300Chart"></canvas>
+                            </div>
+                            <div class="bg-zinc-50 rounded-lg p-5">
+                                <div class="flex justify-between items-center mb-3">
+                                    <h5 class="font-medium text-zinc-800">指数关键数据</h5>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">成分股数量</p>
+                                        <p class="text-xl font-semibold">300<span class="text-sm font-normal">只</span></p>
+                                    </div>
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">基日点数</p>
+                                        <p class="text-xl font-semibold">1000<span class="text-sm font-normal">点</span></p>
+                                    </div>
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">创立年份</p>
+                                        <p class="text-xl font-semibold">2005<span class="text-sm font-normal">年</span></p>
+                                    </div>
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">编制方式</p>
+                                        <p class="text-md font-semibold">自由流通市值加权</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 创业板指 -->
+            <div class="index-card" id="chinext">
+                <div class="flex flex-col md:flex-row justify-between">
+                    <div class="md:w-7/12 mb-8 md:mb-0 md:pr-8">
+                        <div class="flex items-center mb-6">
+                            <div class="index-badge">399006</div>
+                            <h3 class="text-2xl font-bold ml-3">创业板指数</h3>
+                        </div>
+                        <div class="prose max-w-none">
+                            <p class="mb-4">创业板指数由<strong>深圳证券交易所</strong>发布，选取<strong>创业板</strong>市场中<strong>市值规模大、流动性好</strong>的<strong>100家</strong>上市公司股票作
+为样本，以反映创业板市场的整体运行情况。</p>
+                            
+                            <h4 class="text-lg font-semibold mb-2 mt-6">指数特点与历史</h4>
+                            <ul class="list-disc pl-5 mb-4 space-y-1">
+                                <li>采用<strong>自由流通量加权</strong>，<strong>派氏加权法</strong>计算</li>
+                                <li>以<strong>2010年5月31日</strong>为基日，基点为<strong>1000点</strong></li>
+                                <li>正式发布于<strong>2010年6月1日</strong></li>
+                                <li>历史最高点：<strong>4037.96</strong>（2015年6月5日）</li>
+                                <li>历史最低点：<strong>585.44</strong>（2012年12月4日）</li>
+                                <li>2019年优化编制方案，调整周期改为半年制</li>
+                            </ul>
+                            
+                            <h4 class="text-lg font-semibold mb-2 mt-6">主要成分股</h4>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2 mt-3">
+                                <div class="stock-item">
+                                    <span class="stock-code">300750</span>
+                                    <span class="stock-name">宁德时代</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">300760</span>
+                                    <span class="stock-name">迈瑞医疗</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">300059</span>
+                                    <span class="stock-name">东方财富</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">302132</span>
+                                    <span class="stock-name">中航成飞</span>
+                                    <span class="date">2025年2月纳入</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">300024</span>
+                                    <span class="stock-name">机器人</span>
+                                    <span class="date">2024年12月纳入</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">300677</span>
+                                    <span class="stock-name">英科医疗</span>
+                                    <span class="date">2024年12月纳入</span>
+                                </div>
+                            </div>
+                            
+                            <p class="text-sm text-zinc-500 mt-3">注：成分股的调整周期为半年，调样实施时间为每年的6月和12月。</p>
+                        </div>
+                    </div>
+                    <div class="md:w-5/12">
+                        <div class="sticky top-24">
+                            <h4 class="text-lg font-semibold mb-4">行业构成分布</h4>
+                            <div class="bg-zinc-50 rounded-lg p-5 h-[300px] mb-5">
+                                <canvas id="chinextChart"></canvas>
+                            </div>
+                            <div class="bg-zinc-50 rounded-lg p-5">
+                                <div class="flex justify-between items-center mb-3">
+                                    <h5 class="font-medium text-zinc-800">指数关键数据</h5>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">成分股数量</p>
+                                        <p class="text-xl font-semibold">100<span class="text-sm font-normal">只</span></p>
+                                    </div>
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">基日点数</p>
+                                        <p class="text-xl font-semibold">1000<span class="text-sm font-normal">点</span></p>
+                                    </div>
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">创立年份</p>
+                                        <p class="text-xl font-semibold">2010<span class="text-sm font-normal">年</span></p>
+                                    </div>
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">市值覆盖率</p>
+                                        <p class="text-xl font-semibold">52<span class="text-sm font-normal">%</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 中证500 -->
+            <div class="index-card" id="csi500">
+                <div class="flex flex-col md:flex-row justify-between">
+                    <div class="md:w-7/12 mb-8 md:mb-0 md:pr-8">
+                        <div class="flex items-center mb-6">
+                            <div class="index-badge">000905/399905</div>
+                            <h3 class="text-2xl font-bold ml-3">中证500指数</h3>
+                        </div>
+                        <div class="prose max-w-none">
+                            <p class="mb-4">中证500指数由<strong>中证指数有限公司</strong>编制，旨在综合反映沪深证券市场内<strong>中等市值</strong>公司的整体状况。</p>
+                            
+                            <h4 class="text-lg font-semibold mb-2 mt-6">指数特点与历史</h4>
+                            <ul class="list-disc pl-5 mb-4 space-y-1">
+                                <li>选样方法：剔除沪深300指数样本股及最近一年日均总市值排名前300名的股票，从剩余股票中按照日均总市值选取排名前500名的股票</li>
+                                <li>采用<strong>自由流通股本市值加权</strong>计算</li>
+                                <li>成分股汇聚了一批"<strong>专精特新</strong>"的细分行业优质企业</li>
+                                <li>发布于<strong>2007年1月15日</strong>，基日为<strong>2004年12月31日</strong>，基点为<strong>1000</strong></li>
+                                <li>市值特点：成分股以总市值在<strong>100-500亿元</strong>人民币的中小市值公司为主</li>
+                            </ul>
+                            
+                            <h4 class="text-lg font-semibold mb-2 mt-6">行业特点</h4>
+                            <p>聚焦于高端制造、科技等高成长性新兴产业，对新经济相关行业配置更高。具体行业权重分布见右侧图表数据。</p>
+                            
+                            <div class="mt-6">
+                                <h4 class="text-lg font-semibold mb-2">市值分布特征</h4>
+                                <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 mt-3">
+                                    <div class="market-cap-item">
+                                        <p class="cap-range">100-200亿元</p>
+                                        <p class="cap-percent">约40%</p>
+                                    </div>
+                                    <div class="market-cap-item">
+                                        <p class="cap-range">200-300亿元</p>
+                                        <p class="cap-percent">超35%</p>
+                                    </div>
+                                    <div class="market-cap-item">
+                                        <p class="cap-range">300-400亿元</p>
+                                        <p class="cap-percent">超13%</p>
+                                    </div>
+                                    <div class="market-cap-item">
+                                        <p class="cap-range">400-500亿元</p>
+                                        <p class="cap-percent">剩余比例</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p class="text-sm text-zinc-500 mt-6">注：中证A500与中证500不同，两者在编制规则、市场表征性和投资策略上存在显著差异。</p>
+                        </div>
+                    </div>
+                    <div class="md:w-5/12">
+                        <div class="sticky top-24">
+                            <h4 class="text-lg font-semibold mb-4">行业构成分布 (截至2024年4月)</h4>
+                            <div class="bg-zinc-50 rounded-lg p-5 h-[300px] mb-5">
+                                <canvas id="csi500Chart"></canvas>
+                            </div>
+                            <div class="bg-zinc-50 rounded-lg p-5">
+                                <div class="flex justify-between items-center mb-3">
+                                    <h5 class="font-medium text-zinc-800">指数关键数据</h5>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">成分股数量</p>
+                                        <p class="text-xl font-semibold">500<span class="text-sm font-normal">只</span></p>
+                                    </div>
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">基日点数</p>
+                                        <p class="text-xl font-semibold">1000<span class="text-sm font-normal">点</span></p>
+                                    </div>
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">创立年份</p>
+                                        <p class="text-xl font-semibold">2007<span class="text-sm font-normal">年</span></p>
+                                    </div>
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">市值特征</p>
+                                        <p class="text-md font-semibold">100-500亿元</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hong Kong Indices -->
+        <section id="hongkong" class="mb-20">
+            <div class="section-header mb-12">
+                <h2 class="text-3xl font-bold mb-2">香港市场主要宽基指数</h2>
+                <div class="w-20 h-1 bg-indigo-500"></div>
+            </div>
+
+            <!-- 恒生指数 -->
+            <div class="index-card" id="hsi">
+                <div class="flex flex-col md:flex-row justify-between">
+                    <div class="md:w-7/12 mb-8 md:mb-0 md:pr-8">
+                        <div class="flex items-center mb-6">
+                            <div class="index-badge">HSI</div>
+                            <h3 class="text-2xl font-bold ml-3">恒生指数</h3>
+                        </div>
+                        <div class="prose max-w-none">
+                            <p class="mb-4">恒生指数由<strong>恒生银行</strong>属下的<strong>恒生指数有限公司</strong>负责计算和管理，是香港股票市场最具代表性的指标。</p>
+                            
+                            <h4 class="text-lg font-semibold mb-2 mt-6">指数特点</h4>
+                            <ul class="list-disc pl-5 mb-4 space-y-1">
+                                <li>由在香港联合交易所主板上市的、<strong>市值最大及成交最活跃</strong>的公司组成</li>
+                                <li>成分股经过流通市值调整，以反映其可投资性</li>
+                                <li>为避免指数偏重个别股份，设有<strong>百分之八的股份比重上限</strong></li>
+                                <li>市场代表性：市值和成交额涵盖率均约为香港主板市场的<strong>68%</strong>左右</li>
+                            </ul>
+                            
+                            <h4 class="text-lg font-semibold mb-2 mt-6">主要成分股</h4>
+                            <div class="grid grid-cols-2 gap-x-4 gap-y-2 mt-3">
+                                <div class="stock-item">
+                                    <span class="stock-code">9988.HK</span>
+                                    <span class="stock-name">阿里巴巴-SW</span>
+                                    <span class="weight">约10.40%</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">0005.HK</span>
+                                    <span class="stock-name">汇丰控股</span>
+                                    <span class="weight">约8.36%</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">0700.HK</span>
+                                    <span class="stock-name">腾讯控股</span>
+                                    <span class="weight">约8.15%</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">3690.HK</span>
+                                    <span class="stock-name">美团-W</span>
+                                    <span class="weight">约6.45%</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">1810.HK</span>
+                                    <span class="stock-name">小米集团-W</span>
+                                    <span class="weight">约6.24%</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">0939.HK</span>
+                                    <span class="stock-name">建设银行</span>
+                                    <span class="weight">约4.91%</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">1299.HK</span>
+                                    <span class="stock-name">友邦保险</span>
+                                    <span class="weight">约4.48%</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">0941.HK</span>
+                                    <span class="stock-name">中国移动</span>
+                                    <span class="weight">约3.36%</span>
+                                </div>
+                            </div>
+                            
+                            <p class="text-sm text-zinc-500 mt-3">注：权重数据截至2025年2月，成分股和权重会定期调整。</p>
+                        </div>
+                    </div>
+                    <div class="md:w-5/12">
+                        <div class="sticky top-24">
+                            <h4 class="text-lg font-semibold mb-4">行业构成分布</h4>
+                            <div class="bg-zinc-50 rounded-lg p-5 h-[300px] mb-5">
+                                <canvas id="hsiChart"></canvas>
+                            </div>
+                            <div class="bg-zinc-50 rounded-lg p-5">
+                                <div class="flex justify-between items-center mb-3">
+                                    <h5 class="font-medium text-zinc-800">指数关键数据 (截至2025年2月)</h5>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">成分股数量</p>
+                                        <p class="text-xl font-semibold">83<span class="text-sm font-normal">只</span></p>
+                                    </div>
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">总市值</p>
+                                        <p class="text-xl font-semibold">26.7<span class="text-sm font-normal">万亿港元</span></p>
+                                    </div>
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">市值涵盖率</p>
+                                        <p class="text-xl font-semibold">68.2<span class="text-sm font-normal">%</span></p>
+                                    </div>
+                                    <div class="key-stat">
+                                        <p class="text-xs text-zinc-500">成交额涵盖率</p>
+                                        <p class="text-xl font-semibold">68.3<span class="text-sm font-normal">%</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 恒生中国企业指数 -->
+            <div class="index-card" id="hscei">
+                <div class="flex flex-col md:flex-row justify-between">
+                    <div class="md:w-7/12 mb-8 md:mb-0 md:pr-8">
+                        <div class="flex items-center mb-6">
+                            <div class="index-badge">HSCEI</div>
+                            <h3 class="text-2xl font-bold ml-3">恒生中国企业指数</h3>
+                        </div>
+                        <div class="prose max-w-none">
+                            <p class="mb-4">恒生中国企业指数（简称国企指数或H股指数）由<strong>恒生指数有限公司</strong>计算，旨在反映在香港上市的<strong>中国内地企业</strong>的整体表现。</p>
+                            
+                            <h4 class="text-lg font-semibold mb-2 mt-6">指数特点</h4>
+                            <ul class="list-disc pl-5 mb-4 space-y-1">
+                                <li>包含在香港交易所上市的<strong>H股、民企股和红筹股</strong></li>
+                                <li>采用<strong>流通市值加权</strong>计算</li>
+                                <li>为避免指数受个别大市值成分股影响，对每只成分股的比重设有上限</li>
+                                <li>成分股数量目前为<strong>50只</strong></li>
+                            </ul>
+                            
+                            <h4 class="text-lg font-semibold mb-2 mt-6">上市类型分布 (截至2020年12月)</h4>
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div class="listing-type-item">
+                                    <div class="type-bar" style="width: 36.87%"></div>
+                                    <div class="type-info">
+                                        <p class="type-name">H股</p>
+                                        <p class="type-percent">36.87%</p>
+                                    </div>
+                                    <p class="type-examples">建设银行、中国平安、工商银行等</p>
+                                </div>
+                                <div class="listing-type-item">
+                                    <div class="type-bar" style="width: 63.13%"></div>
+                                    <div class="type-info">
+                                        <p class="type-name">红筹股及民营企业</p>
+                                        <p class="type-percent">63.13%</p>
+                                    </div>
+                                    <p class="type-examples">腾讯控股、美团、阿里巴巴等</p>
+                                </div>
+                            </div>
+                            
+                            <h4 class="text-lg font-semibold mb-2 mt-6">主要成分股</h4>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2 mt-3">
+                                <div class="stock-item">
+                                    <span class="stock-code">0700.HK</span>
+                                    <span class="stock-name">腾讯控股</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">0939.HK</span>
+                                    <span class="stock-name">建设银行</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">0941.HK</span>
+                                    <span class="stock-name">中国移动</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">9988.HK</span>
+                                    <span class="stock-name">阿里巴巴</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">3690.HK</span>
+                                    <span class="stock-name">美团-W</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">1810.HK</span>
+                                    <span class="stock-name">小米集团</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">1398.HK</span>
+                                    <span class="stock-name">工商银行</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">2318.HK</span>
+                                    <span class="stock-name">中国平安</span>
+                                </div>
+                                <div class="stock-item">
+                                    <span class="stock-code">1211.HK</span>
+                                    <span class="stock-name">比亚迪股份</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-5/12">
+                        <div class="sticky top-24">
+                            <h4 class="text-lg font-semibold mb-4">行业构成分布</h4>
+                            <div class="bg-zinc-50 rounded-lg p-5 h-[300px] mb-5">
+                                <canvas id="hsceiChart"></canvas>
+                            </div>
+                            <div class="bg-zinc-50 rounded-lg p-5">
+                                <div class="flex flex-col space-y-3">
+                                    <h5 class="font-medium text-zinc-800">成分股类型说明</h5>
+                                    <div class="border-l-2 border-blue-500 pl-4 py-1">
+                                        <h6 class="font-semibold text-sm">H股</h6>
+                                        <p class="text-xs text-zinc-600">在内地注册成立的企业，以外资股形式在香港上市交易的股票</p>
+                                    </div>
+                                    <div class="border-l-2 border-green-500 pl-4 py-1">
+                                        <h6 class="font-semibold text-sm">红筹股</h6>
+                                        <p class="text-xs text-zinc-600">在境外注册，但主要业务在内地的企业在香港上市的股票</p>
+                                    </div>
+                                    <div class="border-l-2 border-purple-500 pl-4 py-1">
+                                        <h6 class="font-semibold text-sm">民营企业</h6>
+                                        <p class="text-xs text-zinc-600">中国内地民营企业在香港上市的股票</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Indices Comparison -->
+        <section id="comparison" class="mb-20">
+            <div class="section-header mb-12">
+                <h2 class="text-3xl font-bold mb-2">指数对比分析</h2>
+                <div class="w-20 h-1 bg-indigo-500"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="comparison-card">
+                    <h3 class="text-xl font-bold mb-4">行业分布对比</h3>
+                    <div class="bg-zinc-50 rounded-lg p-6 h-[400px]">
+                        <canvas id="sectorComparisonChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="comparison-card">
+                    <h3 class="text-xl font-bold mb-4">指数基本特征对比</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-zinc-50 rounded-lg">
+                            <thead>
+                                <tr class="bg-zinc-100 text-left text-xs font-medium text-zinc-700 uppercase tracking-wider">
+                                    <th class="px-6 py-3">指数名称</th>
+                                    <th class="px-6 py-3">成分股数量</th>
+                                    <th class="px-6 py-3">创立年份</th>
+                                    <th class="px-6 py-3">编制方式</th>
+                                    <th class="px-6 py-3">市值特征</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-zinc-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">上证综指</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">约1177只</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">1991</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">市值加权</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">全市场</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">深证成指</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">500只</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">1994</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">派氏加权</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">大中型</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">沪深300</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">300只</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">2005</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">自由流通市值加权</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">大型蓝筹</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">创业板指</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">100只</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">2010</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">自由流通量加权</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">新兴成长</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">中证500</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">500只</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">2007</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">自由流通股本加权</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">中等市值</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">恒生指数</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">83只</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">1969</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">流通市值加权</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">香港蓝筹</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">恒生中国企业</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">50只</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">1994</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">流通市值加权</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">中国内地企业</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="comparison-card lg:col-span-2">
+                    <h3 class="text-xl font-bold mb-4">投资特点与适合人群分析</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="investor-card">
+                            <div class="investor-header">
+                                <i data-lucide="trending-up" class="w-5 h-5 text-zinc-700"></i>
+                                <h4 class="text-lg font-semibold">稳健型投资者</h4>
+                            </div>
+                            <p class="mb-3 text-zinc-600">追求稳定收益和风险控制的投资者</p>
+                            <div class="investor-recommendations">
+                                <p class="recommendation-item">沪深300指数 <span>大盘蓝筹</span></p>
+                                <p class="recommendation-item">恒生指数 <span>成熟市场</span></p>
+                            </div>
+                        </div>
+                        <div class="investor-card">
+                            <div class="investor-header">
+                                <i data-lucide="bar-chart-2" class="w-5 h-5 text-zinc-700"></i>
+                                <h4 class="text-lg font-semibold">平衡型投资者</h4>
+                            </div>
+                            <p class="mb-3 text-zinc-600">兼顾增长与稳定的投资者</p>
+                            <div class="investor-recommendations">
+                                <p class="recommendation-item">上证综指/深证成指 <span>广泛覆盖</span></p>
+                                <p class="recommendation-item">恒生中国企业指数 <span>内地优质企业</span></p>
+                            </div>
+                        </div>
+                        <div class="investor-card">
+                            <div class="investor-header">
+                                <i data-lucide="zap" class="w-5 h-5 text-zinc-700"></i>
+                                <h4 class="text-lg font-semibold">进取型投资者</h4>
+                            </div>
+                            <p class="mb-3 text-zinc-600">追求较高回报，能够承受较大波动</p>
+                            <div class="investor-recommendations">
+                                <p class="recommendation-item">创业板指 <span>高新技术</span></p>
+                                <p class="recommendation-item">中证500 <span>专精特新</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-50 border-t border-zinc-200 py-12">
+        <div class="container max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <p class="text-sm text-zinc-500 mb-2">本报告仅供参考，不构成任何投资建议</p>
+                    <p class="text-sm text-zinc-500">数据来源于公开资料，如有更新请以官方发布为准</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-sm text-zinc-500"> 反关财经 <a href="https://flowith.net" target="_blank" class="underline"> by 不霁何虹</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="charts.js"></script>
+    <script src="utils.js"></script>
+</body>
+</html>

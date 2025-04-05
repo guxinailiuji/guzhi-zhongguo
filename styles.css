@@ -1,0 +1,147 @@
+/* Base styles */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+}
+
+.font-geist-mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* Header & Navigation */
+header {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Cards & Containers */
+.stat-card {
+    @apply bg-white rounded-lg p-6 border border-zinc-100 shadow-sm hover:shadow-md transition duration-300;
+}
+
+.icon-wrapper {
+    @apply flex items-center justify-center w-10 h-10 rounded-full bg-indigo-50 mb-4;
+}
+
+.index-card {
+    @apply p-8 mb-12 bg-white rounded-xl border border-zinc-100 shadow-sm;
+}
+
+.index-badge {
+    @apply bg-zinc-100 text-zinc-800 font-medium py-1 px-3 rounded-md font-geist-mono text-sm;
+}
+
+.stock-item {
+    @apply flex flex-wrap items-center text-sm py-1.5 px-3 bg-zinc-50 rounded-md;
+}
+
+.stock-code {
+    @apply text-zinc-500 mr-2 font-geist-mono;
+}
+
+.stock-name {
+    @apply font-medium;
+}
+
+.weight, .date {
+    @apply text-xs text-indigo-600 ml-auto;
+}
+
+.key-stat {
+    @apply bg-white p-3 rounded-md;
+}
+
+.market-cap-item {
+    @apply bg-zinc-50 p-3 rounded-md;
+}
+
+.cap-range {
+    @apply text-sm font-medium;
+}
+
+.cap-percent {
+    @apply text-xl font-semibold text-indigo-600;
+}
+
+.listing-type-item {
+    @apply bg-zinc-50 p-4 rounded-md relative;
+}
+
+.type-bar {
+    @apply absolute top-0 left-0 h-full bg-indigo-100 rounded-md z-0;
+}
+
+.type-info {
+    @apply flex justify-between items-center relative z-10;
+}
+
+.type-name {
+    @apply font-medium;
+}
+
+.type-percent {
+    @apply text-indigo-600 font-semibold;
+}
+
+.type-examples {
+    @apply text-xs text-zinc-500 mt-1 relative z-10;
+}
+
+.comparison-card {
+    @apply bg-white p-6 rounded-xl border border-zinc-100 shadow-sm;
+}
+
+.investor-card {
+    @apply bg-zinc-50 p-5 rounded-lg;
+}
+
+.investor-header {
+    @apply flex items-center space-x-2 mb-2;
+}
+
+.investor-recommendations {
+    @apply space-y-2;
+}
+
+.recommendation-item {
+    @apply bg-white rounded-md px-3 py-2 text-sm font-medium flex justify-between items-center;
+}
+
+.recommendation-item span {
+    @apply text-xs text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c5c5c5;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a0a0a0;
+}
+
+/* Section header with line */
+.section-header {
+    position: relative;
+}
+
+.section-header::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background-color: #f4f4f5;
+    bottom: -12px;
+    left: 0;
+}
